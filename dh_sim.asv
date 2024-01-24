@@ -1,16 +1,16 @@
 %           theta    d      a    alpha    offset
-L1=Link([    0       64      0      0         0    ], 'modified');
+L1=Link([    0       1      0      0         0    ], 'modified');
 L2=Link([    -pi/2       0      0      -pi/2     -pi/2], 'modified');
-L3=Link([    0       0      43.5      0         0    ], 'modified');
-L4=Link([    0       0      82.85     0         0    ], 'modified');
-L5=Link([    0       73.85      0      -pi/2     -pi/2], 'modified');
+L3=Link([    0       0      1      0         0    ], 'modified');
+L4=Link([    0       0      1      0         0    ], 'modified');
+L5=Link([    0       1      0      -pi/2     -pi/2], 'modified');
 L6=Link([    0       0      0      -pi/2     0    ], 'modified');
 
 robot=SerialLink([L1,L2,L3,L4,L5,L6]); % 将四个连杆组成机械臂
 q = [0, pi/6, 0, 0, 0, pi/4 ];
 p= robot.fkine(q);
 q = robot.ikine(p);
-robot.name='dofbot';
+% robot.name='4DOF Robotic Arm';
 robot.display();
 % robot.teach();
 robot.plot([0 L2.theta 0 0 L5.theta 0])
@@ -37,8 +37,6 @@ for n=1:1:3000
 qq=[theta1(n),theta2(n),theta3(n),theta4(n), 0, 0];
 robot.plot(qq);%动画显示
 Mricx=robot.fkine(qq);
-
-zlim tight
 plot3(Mricx.t(1),Mricx.t(2),Mricx.t(3), 'r.','MarkerSize',4);%画出落点
 hold on;
 end
