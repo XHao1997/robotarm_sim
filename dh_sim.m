@@ -7,14 +7,14 @@ L5=Link([    0       82.85      0      -pi/2     -pi/2], 'modified');
 L6=Link([    0       0      0      -pi/2     0    ], 'modified');
 
 robot=SerialLink([L1,L2,L3,L4,L5,L6]); % 将四个连杆组成机械臂
-q = [0, pi/6, 0, 0, 0, pi/4 ];
-p= robot.fkine(q);
-q = robot.ikine(p);
-robot.name='dofbot';
-robot.display();
-robot.teach();
-robot.plot([0 L2.theta 0 0 L5.theta 0])
-p = robot.fkine([0 -pi/2 0 -pi/2 -pi/2 0])
+
+% p= robot.fkine(q);
+
+% robot.name='dofbot';
+% robot.display();
+% robot.teach();
+% robot.plot([0 L2.theta 0 0 L5.theta 0])
+p = robot.fkine([0 -pi/2 0 -pi/2 0 0])
 
 % 
 % N=30000;    %随机次数
