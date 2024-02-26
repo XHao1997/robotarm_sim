@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hrl-kdl" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/urdf_parser_py" vcs="Git" />
   </component>
 </project>
